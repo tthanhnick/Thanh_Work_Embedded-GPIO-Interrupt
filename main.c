@@ -7,7 +7,7 @@ int main(void)
 	//SetOrClearBit((unsigned int*) PCC_PORTD, 30u, SET_BIT);
 	LEDConfig();
 	SW3Config();
-	InterruptConfig();
+	GPIOInterruptConfig();
 	
 	while(1)
 	{
@@ -30,5 +30,5 @@ int main(void)
 void PORTC_IRQHandler(void)
 {
 	count++;
-	SetOrClearBit((unsigned int*) PORT_PCR13, 16u, SET_BIT); //CLEAR FLAG
+	SetOrClearBit((unsigned int*) PORTC_PCR13, 16u, SET_BIT); //CLEAR FLAG
 }

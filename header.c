@@ -30,9 +30,9 @@
 {
 	SetOrClearBit((unsigned int*) PCC_PORTD, 30u, SET_BIT);
 	
-	SetOrClearMultiBit((unsigned int*) PORT_PCR15, 8u, 1u, SET_BIT); //0b001 GPIO Mode
-	SetOrClearMultiBit((unsigned int*) PORT_PCR0, 8u, 1u, SET_BIT);
-	SetOrClearMultiBit((unsigned int*) PORT_PCR16, 8u, 1u, SET_BIT);
+	SetOrClearMultiBit((unsigned int*) PORTD_PCR15, 8u, 1u, SET_BIT); //0b001 GPIO Mode
+	SetOrClearMultiBit((unsigned int*) PORTD_PCR0, 8u, 1u, SET_BIT);
+	SetOrClearMultiBit((unsigned int*) PORTD_PCR16, 8u, 1u, SET_BIT);
 	
 	SetOrClearBit((unsigned int*) GPIOD_PDDR, 15u, SET_BIT);
 	SetOrClearBit((unsigned int*) GPIOD_PDDR, 0u, SET_BIT);
@@ -42,7 +42,7 @@
  void SW3Config (void)
 {
 	SetOrClearBit((unsigned int*) PCC_PORTC, 30u, SET_BIT);
-	SetOrClearMultiBit((unsigned int*) PORT_PCR13, 8u, 1u, SET_BIT);
+	SetOrClearMultiBit((unsigned int*) PORTC_PCR13, 8u, 1u, SET_BIT);
 	SetOrClearBit((unsigned int*) GPIOD_PDDR, 13u, CLEAR_BIT);
 	// Turn off light
 	SetOrClearMultiBit((unsigned int*) GPIOD_PDOR, 15u, 1u, SET_BIT);
@@ -71,8 +71,8 @@
 	SetOrClearMultiBit((unsigned int*) GPIOD_PDOR, 16u, 1u, CLEAR_BIT);	
 }
 
- void InterruptConfig(void)
+ void GPIOInterruptConfig(void)
 {
-	SetOrClearMultiBit((unsigned int*) PORT_PCR13, 16u, 11u, SET_BIT); //0b1011 - Either Edge
+	SetOrClearMultiBit((unsigned int*) PORTC_PCR13, 16u, 11u, SET_BIT); //0b1011 - Either Edge
 	SetOrClearBit((unsigned int*) NVIC_INTERRUPT, 29u, SET_BIT); //NVIC Interrupt ID 61 Mod 32
 }
